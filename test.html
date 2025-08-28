@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IETE Committee - Teams</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --off-white: #F9F9F9;
+      --neon-blue: #4CC9F0;
+      --magenta: #F72585;
+      --cyber-orange: #FF6B00;
+      --neon-green: #00FF87;
+      --cyber-yellow: #FFD60A;
+      --dark-charcoal: #222222;
+      --medium-gray: #555555;
+      --soft-gray: #AAAAAA;
+    }
+
+    body {
+      font-family: 'Exo 2', sans-serif;
+      background: var(--off-white);
+      color: var(--dark-charcoal);
+      position: relative;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Ensure all text is visible */
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--dark-charcoal);
+      font-weight: 600;
+    }
+
+    p, span, div {
+      color: var(--dark-charcoal);
+    }
+
+    .text-medium-gray {
+      color: var(--medium-gray) !important;
+    }
+
+    .text-dark-charcoal {
+      color: var(--dark-charcoal) !important;
+    }
+
+    .text-soft-gray {
+      color: var(--soft-gray) !important;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(76, 201, 240, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(247, 37, 133, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(255, 107, 0, 0.02) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .cyberpunk-title {
+      font-family: 'Orbitron', monospace;
+      background: linear-gradient(135deg, var(--neon-blue), var(--magenta));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 30px rgba(76, 201, 240, 0.3);
+      /* Fallback for browsers that don't support background-clip */
+      color: var(--neon-blue);
+    }
+
+    .cyberpunk-subtitle {
+      font-family: 'Orbitron', monospace;
+      color: var(--cyber-orange);
+      text-shadow: 0 0 20px rgba(255, 107, 0, 0.4);
+    }
+
+    .cyber-card {
+      background: white;
+      border: 2px solid transparent;
+      background-clip: padding-box;
+      position: relative;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+      /* Ensure text is visible on white background */
+      color: var(--dark-charcoal);
+    }
+
+    .cyber-card h3,
+    .cyber-card h4,
+    .cyber-card p {
+      color: var(--dark-charcoal) !important;
+    }
+
+    .cyber-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, var(--neon-blue), var(--magenta));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: -1;
+    }
+
+    .cyber-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 
+        0 20px 40px rgba(76, 201, 240, 0.15),
+        0 8px 16px rgba(247, 37, 133, 0.1),
+        0 0 0 1px rgba(76, 201, 240, 0.2);
+    }
+
+    .cyber-card:hover::before {
+      opacity: 0.05;
+    }
+
+    .cyber-card.lead {
+      border: 2px solid var(--cyber-orange);
+      box-shadow: 
+        0 8px 32px rgba(255, 107, 0, 0.15),
+        0 0 0 1px rgba(255, 107, 0, 0.1);
+    }
+
+    .cyber-card.lead:hover {
+      box-shadow: 
+        0 20px 40px rgba(255, 107, 0, 0.2),
+        0 8px 16px rgba(255, 107, 0, 0.15),
+        0 0 0 2px rgba(255, 107, 0, 0.3);
+    }
+
+    .cyber-avatar {
+      background: linear-gradient(135deg, var(--neon-blue), var(--magenta));
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cyber-avatar::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transform: rotate(45deg);
+      transition: transform 0.6s ease;
+    }
+
+    .cyber-card:hover .cyber-avatar::before {
+      transform: rotate(45deg) translate(50%, 50%);
+    }
+
+    .section-header {
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-header::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--neon-blue), var(--magenta), var(--cyber-orange));
+      border-radius: 2px;
+    }
+
+    .team-section {
+      position: relative;
+    }
+
+    
+
+    .glow-text {
+      text-shadow: 0 0 10px currentColor;
+    }
+
+    .cyber-button {
+      background: linear-gradient(135deg, var(--neon-blue), var(--magenta));
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cyber-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .cyber-button:hover::before {
+      left: 100%;
+    }
+
+    .cyber-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(76, 201, 240, 0.4);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .float-animation {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(76, 201, 240, 0.3); }
+      50% { box-shadow: 0 0 40px rgba(76, 201, 240, 0.6); }
+    }
+
+    .pulse-glow {
+      animation: pulse-glow 3s ease-in-out infinite;
+    }
+
+    .grid-glow {
+      background-image: 
+        linear-gradient(rgba(76, 201, 240, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(76, 201, 240, 0.1) 1px, transparent 1px);
+      background-size: 20px 20px;
+      opacity: 0.3;
+    }
+
+    /* Additional text visibility improvements */
+    .section-header {
+      color: var(--cyber-orange) !important;
+      text-shadow: 0 0 10px rgba(255, 107, 0, 0.3);
+    }
+
+    /* Ensure team names are visible */
+    .team-section h3 {
+      color: var(--dark-charcoal) !important;
+      font-weight: 700;
+    }
+
+    /* Improve button text visibility */
+    .cyber-button {
+      color: white !important;
+      font-weight: 600;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    .cyber-button-secondary {
+      background: linear-gradient(135deg, var(--cyber-orange), var(--neon-green)) !important;
+      color: var(--dark-charcoal) !important;
+      font-weight: 600;
+      text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cyber-button-secondary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .cyber-button-secondary:hover::before {
+      left: 100%;
+    }
+
+    .cyber-button-secondary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255, 107, 0, 0.4);
+    }
+
+    /* Team names and badges styling */
+    .team-name {
+      color: var(--dark-charcoal) !important;
+      font-weight: 700;
+      margin-bottom: 2rem;
+    }
+
+    .team-badge {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      color: white;
+      background: linear-gradient(135deg, var(--neon-blue), var(--magenta));
+      box-shadow: 0 4px 15px rgba(76, 201, 240, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .team-badge:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(76, 201, 240, 0.4);
+    }
+
+    .team-badge.design-team {
+      background: linear-gradient(135deg, var(--magenta), var(--cyber-orange));
+      box-shadow: 0 4px 15px rgba(247, 37, 133, 0.3);
+    }
+
+    .team-badge.design-team:hover {
+      box-shadow: 0 8px 25px rgba(247, 37, 133, 0.4);
+    }
+
+    .team-badge.pr-team {
+      background: linear-gradient(135deg, var(--cyber-orange), var(--neon-green));
+      box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
+    }
+
+    .team-badge.pr-team:hover {
+      box-shadow: 0 8px 25px rgba(255, 107, 0, 0.4);
+    }
+
+    .team-badge.content-team {
+      background: linear-gradient(135deg, var(--neon-green), var(--cyber-yellow));
+      color: var(--dark-charcoal);
+      box-shadow: 0 4px 15px rgba(0, 255, 135, 0.3);
+    }
+
+    .team-badge.content-team:hover {
+      box-shadow: 0 8px 25px rgba(0, 255, 135, 0.4);
+    }
+
+    .team-badge.event-team {
+      background: linear-gradient(135deg, var(--cyber-yellow), var(--neon-blue));
+      color: var(--dark-charcoal);
+      box-shadow: 0 4px 15px rgba(255, 214, 10, 0.3);
+    }
+
+         .team-badge.event-team:hover {
+       box-shadow: 0 8px 25px rgba(255, 214, 10, 0.4);
+     }
+
+     /* Advanced futuristic team section enhancements */
+     .team-section {
+       position: relative;
+       background: linear-gradient(135deg, rgba(76, 201, 240, 0.02), rgba(247, 37, 133, 0.02));
+       border-radius: 20px;
+       padding: 20px;
+       margin: 20px 0;
+     }
+
+
+
+
+
+     /* Futuristic team cards with holographic effects */
+     .cyber-card {
+       position: relative;
+       background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+       backdrop-filter: blur(10px);
+       border: 1px solid rgba(76, 201, 240, 0.2);
+     }
+
+     .cyber-card::after {
+       content: '';
+       position: absolute;
+       top: 0;
+       left: 0;
+       right: 0;
+       bottom: 0;
+       background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+       opacity: 0;
+       transition: opacity 0.6s ease;
+       pointer-events: none;
+     }
+
+     .cyber-card:hover::after {
+       opacity: 1;
+       animation: holographicScan 2s ease-in-out infinite;
+     }
+
+     @keyframes holographicScan {
+       0% { transform: translateX(-100%); }
+       50% { transform: translateX(100%); }
+       100% { transform: translateX(100%); }
+     }
+
+     /* Advanced avatar effects */
+     .cyber-avatar {
+       position: relative;
+       background: linear-gradient(135deg, var(--neon-blue), var(--magenta));
+       border: 3px solid rgba(255, 255, 255, 0.3);
+       box-shadow: 
+         0 0 20px rgba(76, 201, 240, 0.5),
+         inset 0 0 20px rgba(255, 255, 255, 0.1);
+     }
+
+     .cyber-avatar::after {
+       content: '';
+       position: absolute;
+       top: -50%;
+       left: -50%;
+       width: 200%;
+       height: 200%;
+       background: conic-gradient(from 0deg, transparent, var(--neon-blue), transparent, var(--magenta), transparent);
+       animation: avatarRotate 3s linear infinite;
+       opacity: 0.3;
+     }
+
+     @keyframes avatarRotate {
+       0% { transform: rotate(0deg); }
+       100% { transform: rotate(360deg); }
+     }
+
+     /* Futuristic team badges with particle effects */
+     .team-badge {
+       position: relative;
+       overflow: hidden;
+       background: linear-gradient(135deg, var(--neon-blue), var(--magenta));
+       border: 2px solid rgba(255, 255, 255, 0.3);
+       box-shadow: 
+         0 0 20px rgba(76, 201, 240, 0.4),
+         inset 0 0 20px rgba(255, 255, 255, 0.1);
+     }
+
+     .team-badge::before {
+       content: '';
+       position: absolute;
+       top: -50%;
+       left: -50%;
+       width: 200%;
+       height: 200%;
+       background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+       animation: badgePulse 2s ease-in-out infinite;
+     }
+
+     @keyframes badgePulse {
+       0%, 100% { transform: scale(1); opacity: 0.2; }
+       50% { transform: scale(1.2); opacity: 0.4; }
+     }
+
+     /* Floating particles background */
+     .particles-bg {
+       position: absolute;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100%;
+       overflow: hidden;
+       pointer-events: none;
+       z-index: -1;
+     }
+
+     .particle {
+       position: absolute;
+       width: 4px;
+       height: 4px;
+       background: var(--neon-blue);
+       border-radius: 50%;
+       animation: floatParticle 6s ease-in-out infinite;
+     }
+
+     .particle:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+     .particle:nth-child(2) { top: 60%; left: 80%; animation-delay: 1s; }
+     .particle:nth-child(3) { top: 80%; left: 20%; animation-delay: 2s; }
+     .particle:nth-child(4) { top: 30%; left: 70%; animation-delay: 3s; }
+     .particle:nth-child(5) { top: 70%; left: 30%; animation-delay: 4s; }
+
+     @keyframes floatParticle {
+       0%, 100% { transform: translateY(0px) scale(1); opacity: 0.3; }
+       50% { transform: translateY(-20px) scale(1.5); opacity: 0.8; }
+     }
+
+     /* Futuristic section dividers */
+     .section-divider {
+       position: relative;
+       height: 4px;
+       background: linear-gradient(90deg, transparent, var(--neon-blue), var(--magenta), var(--cyber-orange), transparent);
+       margin: 40px 0;
+       border-radius: 2px;
+     }
+
+     .section-divider::before {
+       content: '';
+       position: absolute;
+       top: -2px;
+       left: 50%;
+       transform: translateX(-50%);
+       width: 20px;
+       height: 8px;
+       background: var(--neon-blue);
+       border-radius: 4px;
+       animation: dividerPulse 2s ease-in-out infinite;
+     }
+
+     @keyframes dividerPulse {
+       0%, 100% { opacity: 0.5; transform: translateX(-50%) scale(1); }
+       50% { opacity: 1; transform: translateX(-50%) scale(1.2); }
+     }
+
+     /* Advanced hover effects for team cards */
+     .cyber-card:hover {
+       transform: translateY(-12px) scale(1.03) rotateX(5deg);
+       box-shadow: 
+         0 25px 50px rgba(76, 201, 240, 0.2),
+         0 15px 30px rgba(247, 37, 133, 0.15),
+         0 0 0 2px rgba(76, 201, 240, 0.3);
+     }
+
+     .cyber-card.lead:hover {
+       transform: translateY(-15px) scale(1.05) rotateX(8deg);
+       box-shadow: 
+         0 30px 60px rgba(255, 107, 0, 0.25),
+         0 20px 40px rgba(255, 107, 0, 0.2),
+         0 0 0 3px rgba(255, 107, 0, 0.4);
+     }
+
+     /* Advanced 3D card effects */
+     .cyber-card {
+       transform-style: preserve-3d;
+       perspective: 1000px;
+     }
+
+     .cyber-card:hover {
+       transform: translateY(-12px) scale(1.03) rotateX(5deg) rotateY(2deg);
+     }
+
+     /* Futuristic data visualization elements */
+     .data-ring {
+       position: absolute;
+       top: -10px;
+       right: -10px;
+       width: 40px;
+       height: 40px;
+       border: 2px solid var(--neon-blue);
+       border-radius: 50%;
+       opacity: 0.7;
+       animation: dataRing 3s linear infinite;
+     }
+
+     .data-ring::before {
+       content: '';
+       position: absolute;
+       top: 50%;
+       left: 50%;
+       width: 20px;
+       height: 20px;
+       border: 1px solid var(--magenta);
+       border-radius: 50%;
+       transform: translate(-50%, -50%);
+       animation: dataRing 2s linear infinite reverse;
+     }
+
+     @keyframes dataRing {
+       0% { transform: rotate(0deg); }
+       100% { transform: rotate(360deg); }
+     }
+
+     /* Holographic text effect */
+     .holographic-text {
+       background: linear-gradient(45deg, var(--neon-blue), var(--magenta), var(--cyber-orange));
+       background-size: 200% 200%;
+       -webkit-background-clip: text;
+       -webkit-text-fill-color: transparent;
+       background-clip: text;
+       animation: holographicShift 3s ease-in-out infinite;
+     }
+
+     @keyframes holographicShift {
+       0%, 100% { background-position: 0% 50%; }
+       50% { background-position: 100% 50%; }
+     }
+
+     /* Futuristic loading bars */
+     .loading-bar {
+       position: relative;
+       width: 100%;
+       height: 4px;
+       background: rgba(76, 201, 240, 0.2);
+       border-radius: 2px;
+       overflow: hidden;
+       margin: 10px 0;
+     }
+
+     .loading-bar::before {
+       content: '';
+       position: absolute;
+       top: 0;
+       left: -100%;
+       width: 100%;
+       height: 100%;
+       background: linear-gradient(90deg, transparent, var(--neon-blue), transparent);
+       animation: loadingScan 2s ease-in-out infinite;
+     }
+
+     @keyframes loadingScan {
+       0% { left: -100%; }
+       100% { left: 100%; }
+     }
+
+     /* Enhanced team section glow */
+     .team-section {
+       box-shadow: 
+         0 0 50px rgba(76, 201, 240, 0.1),
+         inset 0 0 50px rgba(76, 201, 240, 0.05);
+     }
+
+     /* Futuristic grid lines */
+     .grid-lines {
+       position: absolute;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100%;
+       background-image: 
+         linear-gradient(rgba(76, 201, 240, 0.1) 1px, transparent 1px),
+         linear-gradient(90deg, rgba(76, 201, 240, 0.1) 1px, transparent 1px);
+       background-size: 30px 30px;
+       opacity: 0.3;
+       animation: gridMove 20s linear infinite;
+     }
+
+     @keyframes gridMove {
+       0% { transform: translate(0, 0); }
+       100% { transform: translate(30px, 30px); }
+     }
+
+    /* Ensure footer text is visible */
+    footer {
+      color: white !important;
+    }
+
+    footer p {
+      color: var(--soft-gray) !important;
+    }
+  </style>
+</head>
+<body class="min-h-screen">
+
+  <!-- Header -->
+  <section class="text-center py-16 relative">
+    <div class="absolute inset-0 grid-glow"></div>
+    <div class="relative z-10">
+      <h1 class="cyberpunk-title text-6xl font-black mb-6 float-animation">Our Team</h1>
+      <p class="text-xl text-medium-gray max-w-2xl mx-auto leading-relaxed">
+        Together we innovate, inspire, and lead in the digital frontier.
+      </p>
+      <div class="mt-8">
+        <button class="cyber-button pulse-glow">
+          Join the Revolution
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOD & Faculty -->
+  <section class="max-w-5xl mx-auto py-16 px-4">
+    <h2 class="cyberpunk-subtitle section-header text-3xl font-bold mb-12 text-center">HOD & Faculty Coordinator</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+      <div class="cyber-card lead rounded-2xl p-8 text-center">
+                 <div class="cyber-avatar w-32 h-32 mx-auto rounded-full mb-6 flex items-center justify-center overflow-hidden">
+           <img src="placeholder-hod.jpg" alt="HOD" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <span class="text-4xl text-white font-bold hidden">H</span>
+         </div>
+                 <h3 class="text-2xl font-bold text-dark-charcoal mb-2">Name</h3>
+        <p class="text-medium-gray">Head of Department</p>
+        <div class="mt-4">
+          <span class="inline-block px-3 py-1 bg-gradient-to-r from-neon-blue to-magenta text-white text-sm rounded-full">
+            Leadership
+          </span>
+        </div>
+      </div>
+      <div class="cyber-card lead rounded-2xl p-8 text-center">
+                 <div class="cyber-avatar w-32 h-32 mx-auto rounded-full mb-6 flex items-center justify-center overflow-hidden">
+           <img src="placeholder-coordinator.jpg" alt="Faculty Coordinator" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <span class="text-4xl text-white font-bold hidden">C</span>
+         </div>
+                 <h3 class="text-2xl font-bold text-dark-charcoal mb-2">Name</h3>
+        <p class="text-medium-gray">Faculty Coordinator</p>
+        <div class="mt-4">
+          <span class="inline-block px-3 py-1 bg-gradient-to-r from-magenta to-cyber-orange text-white text-sm rounded-full">
+            Guidance
+          </span>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Committee -->
+  <section class="max-w-6xl mx-auto py-16 px-4 team-section">
+    <h2 class="cyberpunk-subtitle section-header text-3xl font-bold mb-12 text-center">Core Committee</h2>
+
+    <!-- CP, VCP, Sec -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-12">
+      <div class="cyber-card lead rounded-2xl p-8 text-center">
+                 <div class="cyber-avatar w-28 h-28 mx-auto rounded-full mb-6 flex items-center justify-center overflow-hidden">
+           <img src="placeholder-chairperson.jpg" alt="Chairperson" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <span class="text-3xl text-white font-bold hidden">CP</span>
+         </div>
+        <h3 class="text-xl font-bold text-dark-charcoal mb-2">Name</h3>
+        <p class="text-medium-gray mb-4">Chairperson</p>
+        <div class="w-16 h-1 bg-gradient-to-r from-neon-blue to-magenta mx-auto rounded-full"></div>
+      </div>
+      <div class="cyber-card lead rounded-2xl p-8 text-center">
+                 <div class="cyber-avatar w-28 h-28 mx-auto rounded-full mb-6 flex items-center justify-center overflow-hidden">
+           <img src="placeholder-vice-chairperson.jpg" alt="Vice Chairperson" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <span class="text-3xl text-white font-bold hidden">VC</span>
+         </div>
+        <h3 class="text-xl font-bold text-dark-charcoal mb-2">Name</h3>
+        <p class="text-medium-gray mb-4">Vice Chairperson</p>
+        <div class="w-16 h-1 bg-gradient-to-r from-magenta to-cyber-orange mx-auto rounded-full"></div>
+      </div>
+      <div class="cyber-card lead rounded-2xl p-8 text-center">
+                 <div class="cyber-avatar w-28 h-28 mx-auto rounded-full mb-6 flex items-center justify-center overflow-hidden">
+           <img src="placeholder-secretary.jpg" alt="Secretary" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <span class="text-3xl text-white font-bold hidden">S</span>
+      </div>
+        <h3 class="text-xl font-bold text-dark-charcoal mb-2">Name</h3>
+        <p class="text-medium-gray mb-4">Secretary</p>
+        <div class="w-16 h-1 bg-gradient-to-r from-cyber-orange to-neon-green mx-auto rounded-full"></div>
+      </div>
+    </div>
+
+    <!-- Rest Core Members -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+      <div class="cyber-card rounded-xl p-6 text-center">
+                 <div class="cyber-avatar w-20 h-20 mx-auto rounded-full mb-4 flex items-center justify-center overflow-hidden">
+           <img src="placeholder-core-1.jpg" alt="Core Member 1" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <span class="text-lg text-white font-bold hidden">1</span>
+         </div>
+                 <h4 class="font-semibold text-dark-charcoal">Name</h4>
+        <p class="text-medium-gray text-sm">Core Member</p>
+      </div>
+      <div class="cyber-card rounded-xl p-6 text-center">
+                 <div class="cyber-avatar w-20 h-20 mx-auto rounded-full mb-4 flex items-center justify-center overflow-hidden">
+           <img src="placeholder-core-2.jpg" alt="Core Member 2" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <span class="text-lg text-white font-bold hidden">2</span>
+         </div>
+                 <h4 class="font-semibold text-dark-charcoal">Name</h4>
+        <p class="text-medium-gray text-sm">Core Member</p>
+      </div>
+      <div class="cyber-card rounded-xl p-6 text-center">
+                 <div class="cyber-avatar w-20 h-20 mx-auto rounded-full mb-4 flex items-center justify-center overflow-hidden">
+           <img src="placeholder-core-3.jpg" alt="Core Member 3" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <span class="text-lg text-white font-bold hidden">3</span>
+         </div>
+        <h4 class="font-semibold text-dark-charcoal">Name</h4>
+        <p class="text-medium-gray text-sm">Core Member</p>
+      </div>
+      <div class="cyber-card rounded-xl p-6 text-center">
+                 <div class="cyber-avatar w-20 h-20 mx-auto rounded-full mb-4 flex items-center justify-center overflow-hidden">
+           <img src="placeholder-core-4.jpg" alt="Core Member 4" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <span class="text-lg text-white font-bold hidden">4</span>
+      </div>
+        <h4 class="font-semibold text-dark-charcoal">Name</h4>
+        <p class="text-medium-gray text-sm">Core Member</p>
+      </div>
+      <div class="cyber-card rounded-xl p-6 text-center">
+                 <div class="cyber-avatar w-20 h-20 mx-auto rounded-full mb-4 flex items-center justify-center overflow-hidden">
+           <img src="placeholder-core-5.jpg" alt="Core Member 5" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <span class="text-lg text-white font-bold hidden">5</span>
+      </div>
+                 <h4 class="font-semibold text-dark-charcoal">Name</h4>
+        <p class="text-medium-gray text-sm">Core Member</p>
+      </div>
+    </div>
+  </section>
+
+   <div class="section-divider"></div>
+
+  <!-- Sub-Core -->
+  <section class="max-w-6xl mx-auto py-16 px-4 team-section">
+    <h2 class="cyberpunk-subtitle section-header text-3xl font-bold mb-12 text-center">Sub-Core Members</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+      <div class="cyber-card rounded-xl p-4 text-center">
+                 <div class="cyber-avatar w-16 h-16 mx-auto rounded-full mb-3 flex items-center justify-center overflow-hidden">
+           <img src="placeholder-subcore-1.jpg" alt="Sub-Core Member 1" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <span class="text-sm text-white font-bold hidden">S1</span>
+         </div>
+        <h4 class="font-semibold text-dark-charcoal text-sm">Name</h4>
+        <p class="text-medium-gray text-xs">Sub-Core Member</p>
+      </div>
+      <div class="cyber-card rounded-xl p-4 text-center">
+                 <div class="cyber-avatar w-16 h-16 mx-auto rounded-full mb-3 flex items-center justify-center overflow-hidden">
+           <img src="placeholder-subcore-2.jpg" alt="Sub-Core Member 2" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <span class="text-sm text-white font-bold hidden">S2</span>
+         </div>
+        <h4 class="font-semibold text-dark-charcoal text-sm">Name</h4>
+        <p class="text-medium-gray text-xs">Sub-Core Member</p>
+      </div>
+      <div class="cyber-card rounded-xl p-4 text-center">
+                 <div class="cyber-avatar w-16 h-16 mx-auto rounded-full mb-3 flex items-center justify-center overflow-hidden">
+           <img src="placeholder-subcore-3.jpg" alt="Sub-Core Member 3" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <span class="text-sm text-white font-bold hidden">S3</span>
+         </div>
+        <h4 class="font-semibold text-dark-charcoal text-sm">Name</h4>
+        <p class="text-medium-gray text-xs">Sub-Core Member</p>
+      </div>
+      <div class="cyber-card rounded-xl p-4 text-center">
+                 <div class="cyber-avatar w-16 h-16 mx-auto rounded-full mb-3 flex items-center justify-center overflow-hidden">
+           <img src="placeholder-subcore-4.jpg" alt="Sub-Core Member 4" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <span class="text-sm text-white font-bold hidden">S4</span>
+         </div>
+        <h4 class="font-semibold text-dark-charcoal text-sm">Name</h4>
+        <p class="text-medium-gray text-xs">Sub-Core Member</p>
+      </div>
+      <div class="cyber-card rounded-xl p-4 text-center">
+                 <div class="cyber-avatar w-16 h-16 mx-auto rounded-full mb-3 flex items-center justify-center overflow-hidden">
+           <img src="placeholder-subcore-5.jpg" alt="Sub-Core Member 5" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <span class="text-sm text-white font-bold hidden">S5</span>
+         </div>
+        <h4 class="font-semibold text-dark-charcoal text-sm">Name</h4>
+        <p class="text-medium-gray text-xs">Sub-Core Member</p>
+      </div>
+      <div class="cyber-card rounded-xl p-4 text-center">
+                 <div class="cyber-avatar w-16 h-16 mx-auto rounded-full mb-3 flex items-center justify-center overflow-hidden">
+           <img src="placeholder-subcore-6.jpg" alt="Sub-Core Member 6" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <span class="text-sm text-white font-bold hidden">S6</span>
+         </div>
+        <h4 class="font-semibold text-dark-charcoal text-sm">Name</h4>
+        <p class="text-medium-gray text-xs">Sub-Core Member</p>
+      </div>
+      <div class="cyber-card rounded-xl p-4 text-center">
+                 <div class="cyber-avatar w-16 h-16 mx-auto rounded-full mb-3 flex items-center justify-center overflow-hidden">
+           <img src="placeholder-subcore-7.jpg" alt="Sub-Core Member 7" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <span class="text-sm text-white font-bold hidden">S7</span>
+         </div>
+        <h4 class="font-semibold text-dark-charcoal text-sm">Name</h4>
+        <p class="text-medium-gray text-xs">Sub-Core Member</p>
+      </div>
+      <div class="cyber-card rounded-xl p-4 text-center">
+                 <div class="cyber-avatar w-16 h-16 mx-auto rounded-full mb-3 flex items-center justify-center overflow-hidden">
+           <img src="placeholder-subcore-8.jpg" alt="Sub-Core Member 8" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <span class="text-sm text-white font-bold hidden">S8</span>
+         </div>
+        <h4 class="font-semibold text-dark-charcoal text-sm">Name</h4>
+        <p class="text-medium-gray text-xs">Sub-Core Member</p>
+      </div>
+      <div class="cyber-card rounded-xl p-4 text-center">
+                 <div class="cyber-avatar w-16 h-16 mx-auto rounded-full mb-3 flex items-center justify-center overflow-hidden">
+           <img src="placeholder-subcore-9.jpg" alt="Sub-Core Member 9" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <span class="text-sm text-white font-bold hidden">S9</span>
+         </div>
+        <h4 class="font-semibold text-dark-charcoal text-sm">Name</h4>
+        <p class="text-medium-gray text-xs">Sub-Core Member</p>
+      </div>
+      <div class="cyber-card rounded-xl p-4 text-center">
+                 <div class="cyber-avatar w-16 h-16 mx-auto rounded-full mb-3 flex items-center justify-center overflow-hidden">
+           <img src="placeholder-subcore-10.jpg" alt="Sub-Core Member 10" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <span class="text-sm text-white font-bold hidden">S10</span>
+         </div>
+        <h4 class="font-semibold text-dark-charcoal text-sm">Name</h4>
+        <p class="text-medium-gray text-xs">Sub-Core Member</p>
+      </div>
+      <div class="cyber-card rounded-xl p-4 text-center">
+                 <div class="cyber-avatar w-16 h-16 mx-auto rounded-full mb-3 flex items-center justify-center overflow-hidden">
+           <img src="placeholder-subcore-11.jpg" alt="Sub-Core Member 11" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <span class="text-sm text-white font-bold hidden">S11</span>
+      </div>
+        <h4 class="font-semibold text-dark-charcoal text-sm">Name</h4>
+        <p class="text-medium-gray text-xs">Sub-Core Member</p>
+      </div>
+    </div>
+  </section>
+
+   <div class="section-divider"></div>
+
+  <!-- Teams -->
+  <section class="max-w-7xl mx-auto py-12 cyberpunk-teams-section">
+    <h2 class="cyberpunk-title text-4xl font-black mb-10 text-center">Our Teams</h2>
+  
+    <!-- Slider container -->
+    <div class="relative overflow-hidden">
+      <div id="teamsSlider" class="flex transition-transform duration-700 ease-in-out">
+        
+        <!-- Team 1 -->
+        <div class="min-w-full flex justify-center">
+          <div class="w-[80%] relative rounded-2xl overflow-hidden shadow-2xl">
+            <img src="team-tech.jpg" alt="Technical Team" class="w-full h-[450px] object-cover team-img-glow">
+            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+              <span class="cyberpunk-gradient-text text-2xl font-bold">Technical Team</span>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Team 2 -->
+        <div class="min-w-full flex justify-center">
+          <div class="w-[80%] relative rounded-2xl overflow-hidden shadow-2xl">
+            <img src="team-design.jpg" alt="Design Team" class="w-full h-[450px] object-cover team-img-glow">
+            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+              <span class="cyberpunk-gradient-text text-2xl font-bold">Design Team</span>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Team 3 -->
+        <div class="min-w-full flex justify-center">
+          <div class="w-[80%] relative rounded-2xl overflow-hidden shadow-2xl">
+            <img src="team-pr.jpg" alt="PR Team" class="w-full h-[450px] object-cover team-img-glow">
+            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+              <span class="cyberpunk-gradient-text text-2xl font-bold">PR Team</span>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Team 4 -->
+        <div class="min-w-full flex justify-center">
+          <div class="w-[80%] relative rounded-2xl overflow-hidden shadow-2xl">
+            <img src="team-content.jpg" alt="Content Team" class="w-full h-[450px] object-cover team-img-glow">
+            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+              <span class="cyberpunk-gradient-text text-2xl font-bold">Content Team</span>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Team 5 -->
+        <div class="min-w-full flex justify-center">
+          <div class="w-[80%] relative rounded-2xl overflow-hidden shadow-2xl">
+            <img src="team-event.jpg" alt="Event Management Team" class="w-full h-[450px] object-cover team-img-glow">
+            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+              <span class="cyberpunk-gradient-text text-2xl font-bold">Event Management</span>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+    .cyberpunk-teams-section {
+      font-family: 'Orbitron', 'Exo 2', Arial, sans-serif;
+      background: linear-gradient(120deg, #fafafa 80%, #e0f7ff 100%);
+      border-radius: 24px;
+      box-shadow: 0 0 40px 0 rgba(76, 201, 240, 0.08);
+      padding-bottom: 4rem;
+    }
+  
+    .cyberpunk-team-card {
+      position: relative;
+      background: #fff;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(34, 34, 34, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .cyberpunk-team-card:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 8px 40px rgba(247, 37, 133, 0.25),
+                  0 4px 20px rgba(34,34,34,0.15);
+      z-index: 2;
+    }
+  
+    .cyberpunk-card-glow {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      border-radius: 1.5rem;
+      box-shadow: 0 0 32px 8px var(--neon-blue, #4cc9f0);
+      opacity: 0.08;
+      z-index: 1;
+      transition: opacity 0.3s ease;
+    }
+    .cyberpunk-team-card:hover .cyberpunk-card-glow {
+      opacity: 0.25;
+    }
+  
+    .team-img-glow {
+      box-shadow: 0 0 20px rgba(76, 201, 240, 0.3);
+      border-bottom: 2px solid var(--magenta, #F72585);
+      transition: box-shadow 0.3s, border-color 0.3s;
+    }
+    .cyberpunk-team-card:hover .team-img-glow {
+      box-shadow: 0 0 32px rgba(247, 37, 133, 0.4);
+      border-bottom: 2px solid var(--neon-blue, #4cc9f0);
+    }
+  
+    .cyberpunk-gradient-text {
+      background: linear-gradient(90deg, #4cc9f0, #f72585, #ff6b00, #00ff87, #ffd60a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-family: 'Orbitron', 'Exo 2', Arial, sans-serif;
+      letter-spacing: 1px;
+      background-size: 200% auto;
+      animation: shimmer 4s linear infinite;
+    }
+  
+    .cyberpunk-title {
+      font-family: 'Orbitron', 'Exo 2', Arial, sans-serif;
+      background: linear-gradient(90deg, #4cc9f0, #f72585, #ff6b00, #00ff87, #ffd60a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 8px rgba(255, 255, 255, 0.8), 0 0 6px rgba(76, 201, 240, 0.6);
+      animation: shimmer 6s linear infinite;
+    }
+  
+    .text-medium-gray {
+      color: #444;
+    }
+  
+    /* Subtle shimmer effect */
+    @keyframes shimmer {
+      0% { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
+  
+    @media (max-width: 768px) {
+      .cyberpunk-teams-section {
+        padding: 2rem 1rem;
+      }
+      .cyberpunk-team-card {
+        margin-bottom: 1.5rem;
+      }
+      .cyberpunk-title {
+        font-size: 2rem;
+      }
+    }
+  </style>
+  
+
+  <!-- Footer -->
+  <footer class="bg-gradient-to-r from-dark-charcoal to-medium-gray text-white py-12 mt-20">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h3 class="cyberpunk-title text-3xl font-bold mb-6">Ready to Join the Future?</h3>
+      <p class="text-soft-gray mb-8 max-w-2xl mx-auto">
+        Be part of the technological revolution. Join IETE and shape the digital landscape of tomorrow.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+                 <button class="cyber-button">
+           Get Involved
+         </button>
+         <button class="cyber-button-secondary">
+           Learn More
+         </button>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+     const slider = document.getElementById("teamsSlider");
+  let index = 0;
+  const slides = slider.children.length;
+
+  setInterval(() => {
+    index = (index + 1) % slides;
+    slider.style.transform = `translateX(-${index * 100}%)`;
+  }, 4000); // auto scroll every 4s
+  </script>
+
+</body>
+</html>
