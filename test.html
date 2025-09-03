@@ -402,33 +402,6 @@
        100% { transform: translateX(100%); }
      }
 
-     /* Advanced avatar effects */
-     .cyber-avatar {
-       position: relative;
-       background: linear-gradient(135deg, var(--neon-blue), var(--magenta));
-       border: 3px solid rgba(255, 255, 255, 0.3);
-       box-shadow: 
-         0 0 20px rgba(76, 201, 240, 0.5),
-         inset 0 0 20px rgba(255, 255, 255, 0.1);
-     }
-
-     .cyber-avatar::after {
-       content: '';
-       position: absolute;
-       top: -50%;
-       left: -50%;
-       width: 200%;
-       height: 200%;
-       background: conic-gradient(from 0deg, transparent, var(--neon-blue), transparent, var(--magenta), transparent);
-       animation: avatarRotate 3s linear infinite;
-       opacity: 0.3;
-     }
-
-     @keyframes avatarRotate {
-       0% { transform: rotate(0deg); }
-       100% { transform: rotate(360deg); }
-     }
-
      /* Futuristic team badges with particle effects */
      .team-badge {
        position: relative;
@@ -676,7 +649,7 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
       <div class="cyber-card lead rounded-2xl p-8 text-center">
                  <div class="cyber-avatar w-32 h-32 mx-auto rounded-full mb-6 flex items-center justify-center overflow-hidden">
-           <img src="placeholder-hod.jpg" alt="HOD" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <img src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?auto=format&fit=facearea&w=400&h=400&facepad=2" alt="HOD" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
            <span class="text-4xl text-white font-bold hidden">H</span>
          </div>
                  <h3 class="text-2xl font-bold text-dark-charcoal mb-2">Name</h3>
@@ -689,7 +662,7 @@
       </div>
       <div class="cyber-card lead rounded-2xl p-8 text-center">
                  <div class="cyber-avatar w-32 h-32 mx-auto rounded-full mb-6 flex items-center justify-center overflow-hidden">
-           <img src="placeholder-coordinator.jpg" alt="Faculty Coordinator" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=facearea&w=400&h=400&facepad=2" alt="Faculty Coordinator" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
            <span class="text-4xl text-white font-bold hidden">C</span>
          </div>
                  <h3 class="text-2xl font-bold text-dark-charcoal mb-2">Name</h3>
@@ -711,7 +684,7 @@
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-12">
       <div class="cyber-card lead rounded-2xl p-8 text-center">
                  <div class="cyber-avatar w-28 h-28 mx-auto rounded-full mb-6 flex items-center justify-center overflow-hidden">
-           <img src="placeholder-chairperson.jpg" alt="Chairperson" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <img src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?auto=format&fit=facearea&w=400&h=400&facepad=2" alt="Chairperson" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
            <span class="text-3xl text-white font-bold hidden">CP</span>
          </div>
         <h3 class="text-xl font-bold text-dark-charcoal mb-2">Name</h3>
@@ -720,7 +693,7 @@
       </div>
       <div class="cyber-card lead rounded-2xl p-8 text-center">
                  <div class="cyber-avatar w-28 h-28 mx-auto rounded-full mb-6 flex items-center justify-center overflow-hidden">
-           <img src="placeholder-vice-chairperson.jpg" alt="Vice Chairperson" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=facearea&w=400&h=400&facepad=2" alt="Vice Chairperson" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
            <span class="text-3xl text-white font-bold hidden">VC</span>
          </div>
         <h3 class="text-xl font-bold text-dark-charcoal mb-2">Name</h3>
@@ -729,7 +702,7 @@
       </div>
       <div class="cyber-card lead rounded-2xl p-8 text-center">
                  <div class="cyber-avatar w-28 h-28 mx-auto rounded-full mb-6 flex items-center justify-center overflow-hidden">
-           <img src="placeholder-secretary.jpg" alt="Secretary" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=facearea&w=400&h=400&facepad=2" alt="Secretary" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
            <span class="text-3xl text-white font-bold hidden">S</span>
       </div>
         <h3 class="text-xl font-bold text-dark-charcoal mb-2">Name</h3>
@@ -742,7 +715,7 @@
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
       <div class="cyber-card rounded-xl p-6 text-center">
                  <div class="cyber-avatar w-20 h-20 mx-auto rounded-full mb-4 flex items-center justify-center overflow-hidden">
-           <img src="placeholder-core-1.jpg" alt="Core Member 1" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=facearea&w=400&h=400&facepad=2" alt="Core Member 1" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
            <span class="text-lg text-white font-bold hidden">1</span>
          </div>
                  <h4 class="font-semibold text-dark-charcoal">Name</h4>
@@ -750,7 +723,7 @@
       </div>
       <div class="cyber-card rounded-xl p-6 text-center">
                  <div class="cyber-avatar w-20 h-20 mx-auto rounded-full mb-4 flex items-center justify-center overflow-hidden">
-           <img src="placeholder-core-2.jpg" alt="Core Member 2" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=facearea&w=400&h=400&facepad=2" alt="Core Member 2" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
            <span class="text-lg text-white font-bold hidden">2</span>
          </div>
                  <h4 class="font-semibold text-dark-charcoal">Name</h4>
@@ -758,7 +731,7 @@
       </div>
       <div class="cyber-card rounded-xl p-6 text-center">
                  <div class="cyber-avatar w-20 h-20 mx-auto rounded-full mb-4 flex items-center justify-center overflow-hidden">
-           <img src="placeholder-core-3.jpg" alt="Core Member 3" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=facearea&w=400&h=400&facepad=2" alt="Core Member 3" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
            <span class="text-lg text-white font-bold hidden">3</span>
          </div>
         <h4 class="font-semibold text-dark-charcoal">Name</h4>
@@ -766,7 +739,7 @@
       </div>
       <div class="cyber-card rounded-xl p-6 text-center">
                  <div class="cyber-avatar w-20 h-20 mx-auto rounded-full mb-4 flex items-center justify-center overflow-hidden">
-           <img src="placeholder-core-4.jpg" alt="Core Member 4" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=facearea&w=400&h=400&facepad=2" alt="Core Member 4" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
            <span class="text-lg text-white font-bold hidden">4</span>
       </div>
         <h4 class="font-semibold text-dark-charcoal">Name</h4>
@@ -774,7 +747,7 @@
       </div>
       <div class="cyber-card rounded-xl p-6 text-center">
                  <div class="cyber-avatar w-20 h-20 mx-auto rounded-full mb-4 flex items-center justify-center overflow-hidden">
-           <img src="placeholder-core-5.jpg" alt="Core Member 5" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=facearea&w=400&h=400&facepad=2" alt="Core Member 5" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
            <span class="text-lg text-white font-bold hidden">5</span>
       </div>
                  <h4 class="font-semibold text-dark-charcoal">Name</h4>
@@ -791,7 +764,7 @@
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
       <div class="cyber-card rounded-xl p-4 text-center">
                  <div class="cyber-avatar w-16 h-16 mx-auto rounded-full mb-3 flex items-center justify-center overflow-hidden">
-           <img src="placeholder-subcore-1.jpg" alt="Sub-Core Member 1" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=facearea&w=200&h=200&facepad=2" alt="Sub-Core Member 1" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
            <span class="text-sm text-white font-bold hidden">S1</span>
          </div>
         <h4 class="font-semibold text-dark-charcoal text-sm">Name</h4>
@@ -799,7 +772,7 @@
       </div>
       <div class="cyber-card rounded-xl p-4 text-center">
                  <div class="cyber-avatar w-16 h-16 mx-auto rounded-full mb-3 flex items-center justify-center overflow-hidden">
-           <img src="placeholder-subcore-2.jpg" alt="Sub-Core Member 2" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=facearea&w=200&h=200&facepad=2" alt="Sub-Core Member 2" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
            <span class="text-sm text-white font-bold hidden">S2</span>
          </div>
         <h4 class="font-semibold text-dark-charcoal text-sm">Name</h4>
@@ -807,7 +780,7 @@
       </div>
       <div class="cyber-card rounded-xl p-4 text-center">
                  <div class="cyber-avatar w-16 h-16 mx-auto rounded-full mb-3 flex items-center justify-center overflow-hidden">
-           <img src="placeholder-subcore-3.jpg" alt="Sub-Core Member 3" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=facearea&w=200&h=200&facepad=2" alt="Sub-Core Member 3" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
            <span class="text-sm text-white font-bold hidden">S3</span>
          </div>
         <h4 class="font-semibold text-dark-charcoal text-sm">Name</h4>
@@ -815,7 +788,7 @@
       </div>
       <div class="cyber-card rounded-xl p-4 text-center">
                  <div class="cyber-avatar w-16 h-16 mx-auto rounded-full mb-3 flex items-center justify-center overflow-hidden">
-           <img src="placeholder-subcore-4.jpg" alt="Sub-Core Member 4" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=facearea&w=200&h=200&facepad=2" alt="Sub-Core Member 4" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
            <span class="text-sm text-white font-bold hidden">S4</span>
          </div>
         <h4 class="font-semibold text-dark-charcoal text-sm">Name</h4>
@@ -823,7 +796,7 @@
       </div>
       <div class="cyber-card rounded-xl p-4 text-center">
                  <div class="cyber-avatar w-16 h-16 mx-auto rounded-full mb-3 flex items-center justify-center overflow-hidden">
-           <img src="placeholder-subcore-5.jpg" alt="Sub-Core Member 5" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=facearea&w=200&h=200&facepad=2" alt="Sub-Core Member 5" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
            <span class="text-sm text-white font-bold hidden">S5</span>
          </div>
         <h4 class="font-semibold text-dark-charcoal text-sm">Name</h4>
@@ -831,7 +804,7 @@
       </div>
       <div class="cyber-card rounded-xl p-4 text-center">
                  <div class="cyber-avatar w-16 h-16 mx-auto rounded-full mb-3 flex items-center justify-center overflow-hidden">
-           <img src="placeholder-subcore-6.jpg" alt="Sub-Core Member 6" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=facearea&w=200&h=200&facepad=2" alt="Sub-Core Member 6" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
            <span class="text-sm text-white font-bold hidden">S6</span>
          </div>
         <h4 class="font-semibold text-dark-charcoal text-sm">Name</h4>
@@ -839,7 +812,7 @@
       </div>
       <div class="cyber-card rounded-xl p-4 text-center">
                  <div class="cyber-avatar w-16 h-16 mx-auto rounded-full mb-3 flex items-center justify-center overflow-hidden">
-           <img src="placeholder-subcore-7.jpg" alt="Sub-Core Member 7" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=facearea&w=200&h=200&facepad=2" alt="Sub-Core Member 7" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
            <span class="text-sm text-white font-bold hidden">S7</span>
          </div>
         <h4 class="font-semibold text-dark-charcoal text-sm">Name</h4>
@@ -847,7 +820,7 @@
       </div>
       <div class="cyber-card rounded-xl p-4 text-center">
                  <div class="cyber-avatar w-16 h-16 mx-auto rounded-full mb-3 flex items-center justify-center overflow-hidden">
-           <img src="placeholder-subcore-8.jpg" alt="Sub-Core Member 8" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=facearea&w=200&h=200&facepad=2" alt="Sub-Core Member 8" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
            <span class="text-sm text-white font-bold hidden">S8</span>
          </div>
         <h4 class="font-semibold text-dark-charcoal text-sm">Name</h4>
@@ -855,7 +828,7 @@
       </div>
       <div class="cyber-card rounded-xl p-4 text-center">
                  <div class="cyber-avatar w-16 h-16 mx-auto rounded-full mb-3 flex items-center justify-center overflow-hidden">
-           <img src="placeholder-subcore-9.jpg" alt="Sub-Core Member 9" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=facearea&w=200&h=200&facepad=2" alt="Sub-Core Member 9" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
            <span class="text-sm text-white font-bold hidden">S9</span>
          </div>
         <h4 class="font-semibold text-dark-charcoal text-sm">Name</h4>
@@ -863,7 +836,7 @@
       </div>
       <div class="cyber-card rounded-xl p-4 text-center">
                  <div class="cyber-avatar w-16 h-16 mx-auto rounded-full mb-3 flex items-center justify-center overflow-hidden">
-           <img src="placeholder-subcore-10.jpg" alt="Sub-Core Member 10" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=facearea&w=200&h=200&facepad=2" alt="Sub-Core Member 10" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
            <span class="text-sm text-white font-bold hidden">S10</span>
          </div>
         <h4 class="font-semibold text-dark-charcoal text-sm">Name</h4>
@@ -871,7 +844,7 @@
       </div>
       <div class="cyber-card rounded-xl p-4 text-center">
                  <div class="cyber-avatar w-16 h-16 mx-auto rounded-full mb-3 flex items-center justify-center overflow-hidden">
-           <img src="placeholder-subcore-11.jpg" alt="Sub-Core Member 11" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+           <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=facearea&w=200&h=200&facepad=2" alt="Sub-Core Member 11" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
            <span class="text-sm text-white font-bold hidden">S11</span>
       </div>
         <h4 class="font-semibold text-dark-charcoal text-sm">Name</h4>
@@ -885,64 +858,123 @@
   <!-- Teams -->
   <section class="max-w-7xl mx-auto py-12 cyberpunk-teams-section">
     <h2 class="cyberpunk-title text-4xl font-black mb-10 text-center">Our Teams</h2>
-  
     <!-- Slider container -->
     <div class="relative overflow-hidden">
       <div id="teamsSlider" class="flex transition-transform duration-700 ease-in-out">
-        
-        <!-- Team 1 -->
+
+    <!-- Team 1: Group photo -->
         <div class="min-w-full flex justify-center">
           <div class="w-[80%] relative rounded-2xl overflow-hidden shadow-2xl">
-            <img src="team-tech.jpg" alt="Technical Team" class="w-full h-[450px] object-cover team-img-glow">
+            <img src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=800&q=80" alt="Technical Team Group" class="w-full h-[450px] object-cover team-img-glow">
             <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
               <span class="cyberpunk-gradient-text text-2xl font-bold">Technical Team</span>
-            </div>
-          </div>
         </div>
-  
-        <!-- Team 2 -->
-        <div class="min-w-full flex justify-center">
-          <div class="w-[80%] relative rounded-2xl overflow-hidden shadow-2xl">
-            <img src="team-design.jpg" alt="Design Team" class="w-full h-[450px] object-cover team-img-glow">
-            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-              <span class="cyberpunk-gradient-text text-2xl font-bold">Design Team</span>
-            </div>
-          </div>
-        </div>
-  
-        <!-- Team 3 -->
-        <div class="min-w-full flex justify-center">
-          <div class="w-[80%] relative rounded-2xl overflow-hidden shadow-2xl">
-            <img src="team-pr.jpg" alt="PR Team" class="w-full h-[450px] object-cover team-img-glow">
-            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-              <span class="cyberpunk-gradient-text text-2xl font-bold">PR Team</span>
-            </div>
-          </div>
-        </div>
-  
-        <!-- Team 4 -->
-        <div class="min-w-full flex justify-center">
-          <div class="w-[80%] relative rounded-2xl overflow-hidden shadow-2xl">
-            <img src="team-content.jpg" alt="Content Team" class="w-full h-[450px] object-cover team-img-glow">
-            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-              <span class="cyberpunk-gradient-text text-2xl font-bold">Content Team</span>
-            </div>
-          </div>
-        </div>
-  
-        <!-- Team 5 -->
-        <div class="min-w-full flex justify-center">
-          <div class="w-[80%] relative rounded-2xl overflow-hidden shadow-2xl">
-            <img src="team-event.jpg" alt="Event Management Team" class="w-full h-[450px] object-cover team-img-glow">
-            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-              <span class="cyberpunk-gradient-text text-2xl font-bold">Event Management</span>
-            </div>
-          </div>
-        </div>
-  
       </div>
     </div>
+
+    <!-- Team 2: Group photo -->
+        <div class="min-w-full flex justify-center">
+          <div class="w-[80%] relative rounded-2xl overflow-hidden shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=800&q=80" alt="Design Team Group" class="w-full h-[450px] object-cover team-img-glow">
+            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+              <span class="cyberpunk-gradient-text text-2xl font-bold">Design Team</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Team 3: PR Team (keep as is) -->
+        <div class="min-w-full flex justify-center">
+          <div class="w-[80%] relative rounded-2xl overflow-hidden shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=80" alt="PR Team" class="w-full h-[450px] object-cover team-img-glow">
+            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+              <span class="cyberpunk-gradient-text text-2xl font-bold">PR Team</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Team 4: Content Team (keep as is) -->
+        <div class="min-w-full flex justify-center">
+          <div class="w-[80%] relative rounded-2xl overflow-hidden shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80" alt="Content Team" class="w-full h-[450px] object-cover team-img-glow">
+            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+              <span class="cyberpunk-gradient-text text-2xl font-bold">Content Team</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Team 5: Event Management (keep as is) -->
+        <div class="min-w-full flex justify-center">
+          <div class="w-[80%] relative rounded-2xl overflow-hidden shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80" alt="Event Management Team" class="w-full h-[450px] object-cover team-img-glow">
+            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+              <span class="cyberpunk-gradient-text text-2xl font-bold">Event Management</span>
+        </div>
+      </div>
+    </div>
+
+      </div>
+    </div>
+    <!-- Slider Dots -->
+    <div id="teamsSliderDots" class="flex justify-center gap-3 mt-8">
+      <button class="slider-dot" aria-label="Go to slide 1"></button>
+      <button class="slider-dot" aria-label="Go to slide 2"></button>
+      <button class="slider-dot" aria-label="Go to slide 3"></button>
+      <button class="slider-dot" aria-label="Go to slide 4"></button>
+      <button class="slider-dot" aria-label="Go to slide 5"></button>
+    </div>
   </section>
+
+<style>
+  .slider-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #aaa;
+    border: 2px solid #4cc9f0;
+    transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 0 0 0 #4cc9f0;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+  }
+
+  .slider-dot:focus {
+    border-color: #ff6b00;
+    box-shadow: 0 0 0 2px #ff6b00;
+  }
+</style>
+<script>
+  // Slider logic with dots
+  const slider = document.getElementById("teamsSlider");
+  const dots = document.querySelectorAll("#teamsSliderDots .slider-dot");
+  let index = 0;
+  const slides = slider.children.length;
+  let autoScroll = true;
+
+  function goToSlide(i) {
+    index = i;
+    slider.style.transform = `translateX(-${index * 100}%)`;
+    dots.forEach((dot, idx) => dot.classList.toggle('active', idx === index));
+  }
+
+  // Dots click event
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      goToSlide(i);
+      autoScroll = false;
+    });
+  });
+
+  // Auto scroll
+  setInterval(() => {
+    if (!autoScroll) return;
+    index = (index + 1) % slides;
+    goToSlide(index);
+  }, 4000);
+
+  // Initial state
+  goToSlide(0);
+</script>
 
   <style>
     .scrollbar-hide::-webkit-scrollbar {
@@ -991,13 +1023,12 @@
     }
   
     .team-img-glow {
-      box-shadow: 0 0 20px rgba(76, 201, 240, 0.3);
-      border-bottom: 2px solid var(--magenta, #F72585);
-      transition: box-shadow 0.3s, border-color 0.3s;
+      box-shadow: none !important;
+      border-bottom: none !important;
     }
     .cyberpunk-team-card:hover .team-img-glow {
-      box-shadow: 0 0 32px rgba(247, 37, 133, 0.4);
-      border-bottom: 2px solid var(--neon-blue, #4cc9f0);
+      box-shadow: none !important;
+      border-bottom: none !important;
     }
   
     .cyberpunk-gradient-text {
@@ -1073,6 +1104,30 @@
     index = (index + 1) % slides;
     slider.style.transform = `translateX(-${index * 100}%)`;
   }, 4000); // auto scroll every 4s
+  </script>
+
+  <!-- Page transition effect -->
+  <style>
+    body {
+      opacity: 0;
+      transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1);
+    }
+    body.page-loaded {
+      opacity: 1;
+    }
+  </style>
+  <script>
+    // Fade-in on page load
+    window.addEventListener('DOMContentLoaded', function () {
+      document.body.classList.add('page-loaded');
+    });
+    // Optional: Fade-out on navigation (if using links)
+    document.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function (e) {
+        if (link.target === '_blank' || link.href.startsWith('javascript:')) return;
+        document.body.classList.remove('page-loaded');
+      });
+    });
   </script>
 
 </body>
