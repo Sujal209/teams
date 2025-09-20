@@ -8,21 +8,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
+      --dark-bg: #18181b;
+      --cyan: #06b6d4;
+      --violet: #8b5cf6;
+      --pink: #ec4899;
       --off-white: #F9F9F9;
-      --neon-blue: #4CC9F0;
-      --magenta: #F72585;
-      --cyber-orange: #FF6B00;
-      --neon-green: #00FF87;
-      --cyber-yellow: #FFD60A;
-      --dark-charcoal: #222222;
       --medium-gray: #555555;
       --soft-gray: #AAAAAA;
+      --dark-charcoal: #222222;
     }
 
     body {
       font-family: 'Exo 2', sans-serif;
-      background: var(--off-white);
-      color: var(--dark-charcoal);
+      background: var(--dark-bg);
+      color: var(--off-white);
       position: relative;
       overflow-x: hidden;
       line-height: 1.6;
@@ -30,12 +29,14 @@
 
     /* Ensure all text is visible */
     h1, h2, h3, h4, h5, h6 {
-      color: var(--dark-charcoal);
-      font-weight: 600;
+      color: var(--off-white);
+      font-weight: 700;
+      letter-spacing: 1px;
+      font-stretch: expanded;
     }
 
     p, span, div {
-      color: var(--dark-charcoal);
+      color: var(--off-white);
     }
 
     .text-medium-gray {
@@ -43,7 +44,7 @@
     }
 
     .text-dark-charcoal {
-      color: var(--dark-charcoal) !important;
+      color: var(--off-white) !important;
     }
 
     .text-soft-gray {
@@ -58,88 +59,43 @@
       width: 100%;
       height: 100%;
       background: 
-        radial-gradient(circle at 20% 80%, rgba(76, 201, 240, 0.03) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(247, 37, 133, 0.03) 0%, transparent 50%),
-        radial-gradient(circle at 40% 40%, rgba(255, 107, 0, 0.02) 0%, transparent 50%);
+        radial-gradient(circle at 20% 80%, rgba(8, 145, 178, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(236, 72, 153, 0.02) 0%, transparent 50%);
       pointer-events: none;
       z-index: -1;
     }
 
-    .cyberpunk-title {
-      font-family: 'Orbitron', monospace;
-      background: linear-gradient(135deg, var(--neon-blue), var(--magenta));
+    .cyberpunk-title, .cyberpunk-gradient-text {
+      background: linear-gradient(90deg, var(--cyan), var(--violet), var(--pink));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      text-shadow: 0 0 30px rgba(76, 201, 240, 0.3);
-      /* Fallback for browsers that don't support background-clip */
-      color: var(--neon-blue);
+      letter-spacing: 4px;
+      font-weight: 900;
+      font-stretch: expanded;
+      text-transform: uppercase;
+      text-shadow: 0 2px 8px rgba(8, 145, 178, 0.3), 0 0 6px rgba(139, 92, 246, 0.2);
+      animation: shimmer 6s linear infinite;
     }
 
     .cyberpunk-subtitle {
       font-family: 'Orbitron', monospace;
-      color: var(--cyber-orange);
-      text-shadow: 0 0 20px rgba(255, 107, 0, 0.4);
+      color: var(--pink);
+      text-shadow: 0 0 20px rgba(236, 72, 153, 0.4);
     }
 
-    .cyber-card {
-      background: white;
-      border: 2px solid transparent;
-      background-clip: padding-box;
-      position: relative;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      overflow: hidden;
-      /* Ensure text is visible on white background */
-      color: var(--dark-charcoal);
+    .cyber-card, .cyber-card.lead, .cyber-card-core, .cyber-card-subcore {
+      background: #232336 !important;
+      border: 2px solid var(--violet) !important;
+      color: var(--off-white) !important;
     }
-
-    .cyber-card h3,
-    .cyber-card h4,
-    .cyber-card p {
-      color: var(--dark-charcoal) !important;
-    }
-
-    .cyber-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(135deg, var(--neon-blue), var(--magenta));
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      z-index: -1;
-    }
-
-    .cyber-card:hover {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 
-        0 20px 40px rgba(76, 201, 240, 0.15),
-        0 8px 16px rgba(247, 37, 133, 0.1),
-        0 0 0 1px rgba(76, 201, 240, 0.2);
-    }
-
-    .cyber-card:hover::before {
-      opacity: 0.05;
-    }
-
-    .cyber-card.lead {
-      border: 2px solid var(--cyber-orange);
-      box-shadow: 
-        0 8px 32px rgba(255, 107, 0, 0.15),
-        0 0 0 1px rgba(255, 107, 0, 0.1);
-    }
-
-    .cyber-card.lead:hover {
-      box-shadow: 
-        0 20px 40px rgba(255, 107, 0, 0.2),
-        0 8px 16px rgba(255, 107, 0, 0.15),
-        0 0 0 2px rgba(255, 107, 0, 0.3);
+    .cyber-card:hover, .cyber-card.lead:hover, .cyber-card-core:hover, .cyber-card-subcore:hover {
+      box-shadow: 0 8px 32px rgba(139, 92, 246, 0.15), 0 0 0 2px var(--cyan);
     }
 
     .cyber-avatar {
-      background: linear-gradient(135deg, var(--neon-blue), var(--magenta));
+      background: linear-gradient(135deg, var(--cyan), var(--pink));
       position: relative;
       overflow: hidden;
     }
@@ -172,12 +128,17 @@
       left: 0;
       width: 100%;
       height: 3px;
-      background: linear-gradient(90deg, var(--neon-blue), var(--magenta), var(--cyber-orange));
+      background: linear-gradient(90deg, var(--cyan), var(--violet), var(--pink));
       border-radius: 2px;
     }
 
     .team-section {
       position: relative;
+      background: linear-gradient(135deg, rgba(8, 145, 178, 0.05), rgba(139, 92, 246, 0.05));
+      border-radius: 20px;
+      padding: 20px;
+      margin: 20px 0;
+      box-shadow: 0 0 50px rgba(8, 145, 178, 0.1), inset 0 0 50px rgba(139, 92, 246, 0.05);
     }
 
     
@@ -187,8 +148,8 @@
     }
 
     .cyber-button {
-      background: linear-gradient(135deg, var(--neon-blue), var(--magenta));
-      color: white;
+      background: linear-gradient(135deg, var(--cyan), var(--pink));
+      color: var(--off-white) !important;
       border: none;
       padding: 12px 24px;
       border-radius: 8px;
@@ -215,7 +176,7 @@
 
     .cyber-button:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(76, 201, 240, 0.4);
+      box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
     }
 
     @keyframes float {
@@ -228,8 +189,8 @@
     }
 
     @keyframes pulse-glow {
-      0%, 100% { box-shadow: 0 0 20px rgba(76, 201, 240, 0.3); }
-      50% { box-shadow: 0 0 40px rgba(76, 201, 240, 0.6); }
+      0%, 100% { box-shadow: 0 0 20px rgba(8, 145, 178, 0.3); }
+      50% { box-shadow: 0 0 40px rgba(8, 145, 178, 0.6); }
     }
 
     .pulse-glow {
@@ -238,36 +199,36 @@
 
     .grid-glow {
       background-image: 
-        linear-gradient(rgba(76, 201, 240, 0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(76, 201, 240, 0.1) 1px, transparent 1px);
+        linear-gradient(rgba(8, 145, 178, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(8, 145, 178, 0.1) 1px, transparent 1px);
       background-size: 20px 20px;
       opacity: 0.3;
     }
 
     /* Additional text visibility improvements */
     .section-header {
-      color: var(--cyber-orange) !important;
-      text-shadow: 0 0 10px rgba(255, 107, 0, 0.3);
+      color: var(--violet) !important;
+      text-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
     }
 
     /* Ensure team names are visible */
     .team-section h3 {
-      color: var(--dark-charcoal) !important;
+      color: var(--off-white) !important;
       font-weight: 700;
     }
 
     /* Improve button text visibility */
     .cyber-button {
-      color: white !important;
+      color: var(--off-white) !important;
       font-weight: 600;
       text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     }
 
     .cyber-button-secondary {
-      background: linear-gradient(135deg, var(--cyber-orange), var(--neon-green)) !important;
-      color: var(--dark-charcoal) !important;
+      background: linear-gradient(135deg, var(--violet), var(--pink));
+      color: var(--off-white) !important;
       font-weight: 600;
-      text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
       border: none;
       padding: 12px 24px;
       border-radius: 8px;
@@ -293,12 +254,12 @@
 
     .cyber-button-secondary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(255, 107, 0, 0.4);
+      box-shadow: 0 8px 25px rgba(236, 72, 153, 0.4);
     }
 
     /* Team names and badges styling */
     .team-name {
-      color: var(--dark-charcoal) !important;
+      color: var(--off-white) !important;
       font-weight: 700;
       margin-bottom: 2rem;
     }
@@ -308,59 +269,59 @@
       padding: 0.5rem 1rem;
       border-radius: 9999px;
       font-weight: 600;
-      color: white;
-      background: linear-gradient(135deg, var(--neon-blue), var(--magenta));
-      box-shadow: 0 4px 15px rgba(76, 201, 240, 0.3);
+      color: var(--off-white);
+      background: linear-gradient(135deg, var(--cyan), var(--violet), var(--pink));
+      box-shadow: 0 4px 15px rgba(8, 145, 178, 0.3);
       transition: all 0.3s ease;
     }
 
     .team-badge:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(76, 201, 240, 0.4);
+      box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
     }
 
     .team-badge.design-team {
-      background: linear-gradient(135deg, var(--magenta), var(--cyber-orange));
-      box-shadow: 0 4px 15px rgba(247, 37, 133, 0.3);
+      background: linear-gradient(135deg, var(--violet), var(--pink));
+      box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
     }
 
     .team-badge.design-team:hover {
-      box-shadow: 0 8px 25px rgba(247, 37, 133, 0.4);
+      box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
     }
 
     .team-badge.pr-team {
-      background: linear-gradient(135deg, var(--cyber-orange), var(--neon-green));
-      box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
+      background: linear-gradient(135deg, var(--pink), var(--cyan));
+      box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
     }
 
     .team-badge.pr-team:hover {
-      box-shadow: 0 8px 25px rgba(255, 107, 0, 0.4);
+      box-shadow: 0 8px 25px rgba(236, 72, 153, 0.4);
     }
 
     .team-badge.content-team {
-      background: linear-gradient(135deg, var(--neon-green), var(--cyber-yellow));
-      color: var(--dark-charcoal);
-      box-shadow: 0 4px 15px rgba(0, 255, 135, 0.3);
+      background: linear-gradient(135deg, var(--cyan), var(--violet));
+      color: var(--off-white);
+      box-shadow: 0 4px 15px rgba(8, 145, 178, 0.3);
     }
 
     .team-badge.content-team:hover {
-      box-shadow: 0 8px 25px rgba(0, 255, 135, 0.4);
+      box-shadow: 0 8px 25px rgba(8, 145, 178, 0.4);
     }
 
     .team-badge.event-team {
-      background: linear-gradient(135deg, var(--cyber-yellow), var(--neon-blue));
-      color: var(--dark-charcoal);
-      box-shadow: 0 4px 15px rgba(255, 214, 10, 0.3);
+      background: linear-gradient(135deg, var(--violet), var(--cyan));
+      color: var(--off-white);
+      box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
     }
 
          .team-badge.event-team:hover {
-       box-shadow: 0 8px 25px rgba(255, 214, 10, 0.4);
+       box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
      }
 
      /* Advanced futuristic team section enhancements */
      .team-section {
        position: relative;
-       background: linear-gradient(135deg, rgba(76, 201, 240, 0.02), rgba(247, 37, 133, 0.02));
+       background: linear-gradient(135deg, rgba(8, 145, 178, 0.02), rgba(139, 92, 246, 0.02));
        border-radius: 20px;
        padding: 20px;
        margin: 20px 0;
@@ -375,7 +336,7 @@
        position: relative;
        background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
        backdrop-filter: blur(10px);
-       border: 1px solid rgba(76, 201, 240, 0.2);
+       border: 1px solid rgba(8, 145, 178, 0.2);
      }
 
      .cyber-card::after {
@@ -406,10 +367,10 @@
      .team-badge {
        position: relative;
        overflow: hidden;
-       background: linear-gradient(135deg, var(--neon-blue), var(--magenta));
+       background: linear-gradient(135deg, var(--cyan), var(--violet), var(--pink));
        border: 2px solid rgba(255, 255, 255, 0.3);
        box-shadow: 
-         0 0 20px rgba(76, 201, 240, 0.4),
+         0 0 20px rgba(8, 145, 178, 0.4),
          inset 0 0 20px rgba(255, 255, 255, 0.1);
      }
 
@@ -445,7 +406,7 @@
        position: absolute;
        width: 4px;
        height: 4px;
-       background: var(--neon-blue);
+       background: var(--cyan);
        border-radius: 50%;
        animation: floatParticle 6s ease-in-out infinite;
      }
@@ -465,7 +426,7 @@
      .section-divider {
        position: relative;
        height: 4px;
-       background: linear-gradient(90deg, transparent, var(--neon-blue), var(--magenta), var(--cyber-orange), transparent);
+       background: linear-gradient(90deg, transparent, var(--cyan), var(--violet), var(--pink), transparent);
        margin: 40px 0;
        border-radius: 2px;
      }
@@ -478,7 +439,7 @@
        transform: translateX(-50%);
        width: 20px;
        height: 8px;
-       background: var(--neon-blue);
+       background: var(--cyan);
        border-radius: 4px;
        animation: dividerPulse 2s ease-in-out infinite;
      }
@@ -492,17 +453,17 @@
      .cyber-card:hover {
        transform: translateY(-12px) scale(1.03) rotateX(5deg);
        box-shadow: 
-         0 25px 50px rgba(76, 201, 240, 0.2),
-         0 15px 30px rgba(247, 37, 133, 0.15),
-         0 0 0 2px rgba(76, 201, 240, 0.3);
+         0 25px 50px rgba(8, 145, 178, 0.2),
+         0 15px 30px rgba(139, 92, 246, 0.15),
+         0 0 0 2px rgba(8, 145, 178, 0.3);
      }
 
      .cyber-card.lead:hover {
        transform: translateY(-15px) scale(1.05) rotateX(8deg);
        box-shadow: 
-         0 30px 60px rgba(255, 107, 0, 0.25),
-         0 20px 40px rgba(255, 107, 0, 0.2),
-         0 0 0 3px rgba(255, 107, 0, 0.4);
+         0 30px 60px rgba(236, 72, 153, 0.25),
+         0 20px 40px rgba(236, 72, 153, 0.2),
+         0 0 0 3px rgba(236, 72, 153, 0.4);
      }
 
      /* Advanced 3D card effects */
@@ -522,7 +483,7 @@
        right: -10px;
        width: 40px;
        height: 40px;
-       border: 2px solid var(--neon-blue);
+       border: 2px solid var(--cyan);
        border-radius: 50%;
        opacity: 0.7;
        animation: dataRing 3s linear infinite;
@@ -535,7 +496,7 @@
        left: 50%;
        width: 20px;
        height: 20px;
-       border: 1px solid var(--magenta);
+       border: 1px solid var(--pink);
        border-radius: 50%;
        transform: translate(-50%, -50%);
        animation: dataRing 2s linear infinite reverse;
@@ -548,7 +509,7 @@
 
      /* Holographic text effect */
      .holographic-text {
-       background: linear-gradient(45deg, var(--neon-blue), var(--magenta), var(--cyber-orange));
+       background: linear-gradient(45deg, var(--cyan), var(--violet), var(--pink));
        background-size: 200% 200%;
        -webkit-background-clip: text;
        -webkit-text-fill-color: transparent;
@@ -566,7 +527,7 @@
        position: relative;
        width: 100%;
        height: 4px;
-       background: rgba(76, 201, 240, 0.2);
+       background: rgba(8, 145, 178, 0.2);
        border-radius: 2px;
        overflow: hidden;
        margin: 10px 0;
@@ -579,7 +540,7 @@
        left: -100%;
        width: 100%;
        height: 100%;
-       background: linear-gradient(90deg, transparent, var(--neon-blue), transparent);
+       background: linear-gradient(90deg, transparent, var(--cyan), transparent);
        animation: loadingScan 2s ease-in-out infinite;
      }
 
@@ -591,8 +552,8 @@
      /* Enhanced team section glow */
      .team-section {
        box-shadow: 
-         0 0 50px rgba(76, 201, 240, 0.1),
-         inset 0 0 50px rgba(76, 201, 240, 0.05);
+         0 0 50px rgba(8, 145, 178, 0.1),
+         inset 0 0 50px rgba(139, 92, 246, 0.05);
      }
 
      /* Futuristic grid lines */
@@ -603,8 +564,8 @@
        width: 100%;
        height: 100%;
        background-image: 
-         linear-gradient(rgba(76, 201, 240, 0.1) 1px, transparent 1px),
-         linear-gradient(90deg, rgba(76, 201, 240, 0.1) 1px, transparent 1px);
+         linear-gradient(rgba(8, 145, 178, 0.1) 1px, transparent 1px),
+         linear-gradient(90deg, rgba(8, 145, 178, 0.1) 1px, transparent 1px);
        background-size: 30px 30px;
        opacity: 0.3;
        animation: gridMove 20s linear infinite;
@@ -617,11 +578,25 @@
 
     /* Ensure footer text is visible */
     footer {
-      color: white !important;
+      color: var(--soft-gray) !important;
     }
 
     footer p {
       color: var(--soft-gray) !important;
+    }
+
+    /* Wide font styling for better visual impact */
+    .wide-font {
+      letter-spacing: 2px;
+      font-weight: 800;
+      font-stretch: expanded;
+      text-transform: uppercase;
+    }
+
+    .wide-font-sm {
+      letter-spacing: 1.5px;
+      font-weight: 700;
+      font-stretch: expanded;
     }
   </style>
 </head>
@@ -632,7 +607,7 @@
     <div class="absolute inset-0 grid-glow"></div>
     <div class="relative z-10">
       <h1 class="cyberpunk-title text-6xl font-black mb-6 float-animation">Our Team</h1>
-      <p class="text-xl text-medium-gray max-w-2xl mx-auto leading-relaxed">
+      <p class="text-xl text-medium-gray max-w-2xl mx-auto leading-relaxed text-white">
         Together we innovate, inspire, and lead in the digital frontier.
       </p>
       <div class="mt-8">
@@ -645,17 +620,17 @@
 
   <!-- HOD & Faculty -->
   <section class="max-w-5xl mx-auto py-16 px-4">
-    <h2 class="cyberpunk-subtitle section-header text-3xl font-bold mb-12 text-center">HOD & Faculty Coordinator</h2>
+    <h2 class="cyberpunk-subtitle section-header text-3xl font-bold mb-12 text-center wide-font">HOD & Faculty Coordinator</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
       <div class="cyber-card lead rounded-2xl p-8 text-center">
                  <div class="cyber-avatar w-32 h-32 mx-auto rounded-full mb-6 flex items-center justify-center overflow-hidden">
            <img src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?auto=format&fit=facearea&w=400&h=400&facepad=2" alt="HOD" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
            <span class="text-4xl text-white font-bold hidden">H</span>
          </div>
-                 <h3 class="text-2xl font-bold text-dark-charcoal mb-2">Name</h3>
-        <p class="text-medium-gray">Head of Department</p>
+                 <h3 class="text-2xl font-bold text-dark-charcoal mb-2 wide-font">Name</h3>
+        <p class="text-medium-gray wide-font-sm">Head of Department</p>
         <div class="mt-4">
-          <span class="inline-block px-3 py-1 bg-gradient-to-r from-neon-blue to-magenta text-white text-sm rounded-full">
+          <span class="inline-block px-3 py-1 bg-gradient-to-r from-cyan to-pink text-white text-sm rounded-full">
             Leadership
           </span>
         </div>
@@ -665,10 +640,10 @@
            <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=facearea&w=400&h=400&facepad=2" alt="Faculty Coordinator" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
            <span class="text-4xl text-white font-bold hidden">C</span>
          </div>
-                 <h3 class="text-2xl font-bold text-dark-charcoal mb-2">Name</h3>
-        <p class="text-medium-gray">Faculty Coordinator</p>
+                 <h3 class="text-2xl font-bold text-dark-charcoal mb-2 wide-font">Name</h3>
+        <p class="text-medium-gray wide-font-sm">Faculty Coordinator</p>
         <div class="mt-4">
-          <span class="inline-block px-3 py-1 bg-gradient-to-r from-magenta to-cyber-orange text-white text-sm rounded-full">
+          <span class="inline-block px-3 py-1 bg-gradient-to-r from-violet to-pink text-white text-sm rounded-full">
             Guidance
           </span>
       </div>
@@ -678,7 +653,7 @@
 
   <!-- Core Committee -->
   <section class="max-w-6xl mx-auto py-16 px-4 team-section">
-    <h2 class="cyberpunk-subtitle section-header text-3xl font-bold mb-12 text-center">Core Committee</h2>
+    <h2 class="cyberpunk-subtitle section-header text-3xl font-bold mb-12 text-center wide-font">Core Committee</h2>
 
     <!-- CP, VCP, Sec -->
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-12">
@@ -689,7 +664,7 @@
          </div>
         <h3 class="text-xl font-bold text-dark-charcoal mb-2">Name</h3>
         <p class="text-medium-gray mb-4">Chairperson</p>
-        <div class="w-16 h-1 bg-gradient-to-r from-neon-blue to-magenta mx-auto rounded-full"></div>
+        <div class="w-16 h-1 bg-gradient-to-r from-cyan to-pink mx-auto rounded-full"></div>
       </div>
       <div class="cyber-card lead rounded-2xl p-8 text-center">
                  <div class="cyber-avatar w-28 h-28 mx-auto rounded-full mb-6 flex items-center justify-center overflow-hidden">
@@ -698,7 +673,7 @@
          </div>
         <h3 class="text-xl font-bold text-dark-charcoal mb-2">Name</h3>
         <p class="text-medium-gray mb-4">Vice Chairperson</p>
-        <div class="w-16 h-1 bg-gradient-to-r from-magenta to-cyber-orange mx-auto rounded-full"></div>
+        <div class="w-16 h-1 bg-gradient-to-r from-violet to-pink mx-auto rounded-full"></div>
       </div>
       <div class="cyber-card lead rounded-2xl p-8 text-center">
                  <div class="cyber-avatar w-28 h-28 mx-auto rounded-full mb-6 flex items-center justify-center overflow-hidden">
@@ -707,7 +682,7 @@
       </div>
         <h3 class="text-xl font-bold text-dark-charcoal mb-2">Name</h3>
         <p class="text-medium-gray mb-4">Secretary</p>
-        <div class="w-16 h-1 bg-gradient-to-r from-cyber-orange to-neon-green mx-auto rounded-full"></div>
+        <div class="w-16 h-1 bg-gradient-to-r from-pink to-cyan mx-auto rounded-full"></div>
       </div>
     </div>
 
@@ -760,7 +735,7 @@
 
   <!-- Sub-Core -->
   <section class="max-w-6xl mx-auto py-16 px-4 team-section">
-    <h2 class="cyberpunk-subtitle section-header text-3xl font-bold mb-12 text-center">Sub-Core Members</h2>
+    <h2 class="cyberpunk-subtitle section-header text-3xl font-bold mb-12 text-center wide-font">Sub-Core Members</h2>
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
       <div class="cyber-card rounded-xl p-4 text-center">
                  <div class="cyber-avatar w-16 h-16 mx-auto rounded-full mb-3 flex items-center justify-center overflow-hidden">
@@ -864,53 +839,53 @@
 
     <!-- Team 1: Group photo -->
         <div class="min-w-full flex justify-center">
-          <div class="w-[80%] relative rounded-2xl overflow-hidden shadow-2xl">
+          <div class="w-[80%] relative rounded-2xl overflow-hidden shadow-2xl bg-transparent">
             <img src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=800&q=80" alt="Technical Team Group" class="w-full h-[450px] object-cover team-img-glow">
-            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-              <span class="cyberpunk-gradient-text text-2xl font-bold">Technical Team</span>
+            <div class="w-full flex justify-center mt-6">
+              <span class="cyberpunk-gradient-text text-2xl font-bold text-center">Technical Team</span>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
 
     <!-- Team 2: Group photo -->
         <div class="min-w-full flex justify-center">
-          <div class="w-[80%] relative rounded-2xl overflow-hidden shadow-2xl">
+          <div class="w-[80%] relative rounded-2xl overflow-hidden shadow-2xl bg-transparent">
             <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=800&q=80" alt="Design Team Group" class="w-full h-[450px] object-cover team-img-glow">
-            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-              <span class="cyberpunk-gradient-text text-2xl font-bold">Design Team</span>
+            <div class="w-full flex justify-center mt-6">
+              <span class="cyberpunk-gradient-text text-2xl font-bold text-center">Design Team</span>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Team 3: PR Team (keep as is) -->
+    <!-- Team 3: PR Team -->
         <div class="min-w-full flex justify-center">
-          <div class="w-[80%] relative rounded-2xl overflow-hidden shadow-2xl">
+          <div class="w-[80%] relative rounded-2xl overflow-hidden shadow-2xl bg-transparent">
             <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=80" alt="PR Team" class="w-full h-[450px] object-cover team-img-glow">
-            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-              <span class="cyberpunk-gradient-text text-2xl font-bold">PR Team</span>
+            <div class="w-full flex justify-center mt-6">
+              <span class="cyberpunk-gradient-text text-2xl font-bold text-center">PR Team</span>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Team 4: Content Team (keep as is) -->
+    <!-- Team 4: Content Team -->
         <div class="min-w-full flex justify-center">
-          <div class="w-[80%] relative rounded-2xl overflow-hidden shadow-2xl">
+          <div class="w-[80%] relative rounded-2xl overflow-hidden shadow-2xl bg-transparent">
             <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80" alt="Content Team" class="w-full h-[450px] object-cover team-img-glow">
-            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-              <span class="cyberpunk-gradient-text text-2xl font-bold">Content Team</span>
+            <div class="w-full flex justify-center mt-6">
+              <span class="cyberpunk-gradient-text text-2xl font-bold text-center">Content Team</span>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Team 5: Event Management (keep as is) -->
+    <!-- Team 5: Event Management -->
         <div class="min-w-full flex justify-center">
-          <div class="w-[80%] relative rounded-2xl overflow-hidden shadow-2xl">
+          <div class="w-[80%] relative rounded-2xl overflow-hidden shadow-2xl bg-transparent">
             <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80" alt="Event Management Team" class="w-full h-[450px] object-cover team-img-glow">
-            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-              <span class="cyberpunk-gradient-text text-2xl font-bold">Event Management</span>
+            <div class="w-full flex justify-center mt-6">
+              <span class="cyberpunk-gradient-text text-2xl font-bold text-center">Event Management</span>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
 
       </div>
     </div>
@@ -987,9 +962,9 @@
 
     .cyberpunk-teams-section {
       font-family: 'Orbitron', 'Exo 2', Arial, sans-serif;
-      background: linear-gradient(120deg, #fafafa 80%, #e0f7ff 100%);
+      background: #232336 !important;
       border-radius: 24px;
-      box-shadow: 0 0 40px 0 rgba(76, 201, 240, 0.08);
+      box-shadow: 0 0 40px 0 rgba(139, 92, 246, 0.08);
       padding-bottom: 4rem;
     }
   
@@ -1037,9 +1012,12 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
       font-family: 'Orbitron', 'Exo 2', Arial, sans-serif;
-      letter-spacing: 1px;
+      letter-spacing: 3px;
+      font-weight: 900;
+      font-stretch: expanded;
       background-size: 200% auto;
       animation: shimmer 4s linear infinite;
+      text-transform: uppercase;
     }
   
     .cyberpunk-title {
@@ -1048,9 +1026,12 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      letter-spacing: 2px;
+      letter-spacing: 4px;
+      font-weight: 900;
+      font-stretch: expanded;
       text-shadow: 0 2px 8px rgba(255, 255, 255, 0.8), 0 0 6px rgba(76, 201, 240, 0.6);
       animation: shimmer 6s linear infinite;
+      text-transform: uppercase;
     }
   
     .text-medium-gray {
